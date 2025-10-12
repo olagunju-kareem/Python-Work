@@ -1,0 +1,31 @@
+def collatz():
+    """A simple programme that shows the
+    Collatz Sequence for a given number."""
+    while True:
+        # Tries to ensure a valid input
+        # i.e not of type str or <= 0
+        number = input('Enter Number: ')
+        try:
+            number = int(number)
+            if number <= 0:
+                print('Enter a positive integer!\n')
+                continue
+            break
+        except ValueError:
+            print('Error: Invalid Input!\n')
+            continue
+            
+    count = 0
+    while number != 1: # Main loop
+        if number % 2 == 0:
+            number = number // 2
+            count += 1
+            print(number)
+            if number == 1:
+                # Set isNotOne to False to end
+                # main loop.
+                print('Took ', count, 'steps.')
+        else:
+            number = (3 * number) + 1
+            count += 1
+            print(number)
